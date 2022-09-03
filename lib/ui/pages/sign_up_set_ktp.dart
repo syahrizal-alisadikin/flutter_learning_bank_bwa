@@ -83,7 +83,11 @@ class _SignUpSetKtpState extends State<SignUpSetKtp> {
                 CustomeFilledButton(
                     title: "Continue",
                     onPressed: () {
-                      Navigator.pushNamed(context, '/register-success');
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        '/register-success',
+                        (route) => false,
+                      );
                     }),
               ],
             ),

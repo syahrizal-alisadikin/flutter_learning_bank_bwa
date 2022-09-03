@@ -96,7 +96,11 @@ class _SignUpPageState extends State<SignUpPage> {
                 CustomeFilledButton(
                     title: "Continue",
                     onPressed: () {
-                      Navigator.pushNamed(context, '/register-set-profile');
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        '/register-set-profile',
+                        (route) => false,
+                      );
                     }),
               ],
             ),
@@ -107,7 +111,11 @@ class _SignUpPageState extends State<SignUpPage> {
           CustomTextButton(
               title: "Sign In",
               onPressed: () {
-                Navigator.pushNamed(context, '/login');
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  '/login',
+                  (route) => false,
+                );
               }),
         ],
       ),

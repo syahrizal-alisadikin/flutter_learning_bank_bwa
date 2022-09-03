@@ -98,7 +98,11 @@ class _SignUpSetProfileState extends State<SignUpSetProfile> {
                 CustomeFilledButton(
                     title: "Continue",
                     onPressed: () {
-                      Navigator.pushNamed(context, '/register-set-ktp');
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        '/register-set-ktp',
+                        (route) => false,
+                      );
                     }),
               ],
             ),

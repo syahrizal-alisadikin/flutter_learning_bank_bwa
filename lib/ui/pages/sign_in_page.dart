@@ -82,7 +82,16 @@ class _SignInPageState extends State<SignInPage> {
                 ),
                 const SizedBox(height: 40),
 
-                const CustomeFilledButton(title: "Sign In", onPressed: null),
+                CustomeFilledButton(
+                  title: "Sign In",
+                  onPressed: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      '/home',
+                      (route) => false,
+                    );
+                  },
+                ),
               ],
             ),
           ),
@@ -92,7 +101,11 @@ class _SignInPageState extends State<SignInPage> {
           CustomTextButton(
               title: "Register New Account",
               onPressed: () {
-                Navigator.pushNamed(context, '/register');
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  '/register',
+                  (route) => false,
+                );
               }),
         ],
       ),
