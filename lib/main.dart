@@ -19,14 +19,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => const SplashPage(),
+        // '/': (context) => const SplashPage(),
         '/onboarding': (context) => const OnboardingPage(),
         '/login': (context) => const SignInPage(),
         '/register': (context) => const SignUpPage(),
         '/register-set-profile': (context) => const SignUpSetProfile(),
         '/register-set-ktp': (context) => const SignUpSetKtp(),
         '/register-success': (context) => const SignUpSuccess(),
-        '/home': (context) => const HomePage(),
+        '/': (context) => const HomePage(),
       },
     );
   }
