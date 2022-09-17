@@ -22,7 +22,7 @@ class HomeLatestTransaction extends StatelessWidget {
         children: [
           Image.asset(
             iconUrl,
-            width: 30,
+            width: 40,
           ),
           const SizedBox(
             width: 16,

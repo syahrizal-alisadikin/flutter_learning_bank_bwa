@@ -1,5 +1,7 @@
 import 'package:bank_flutter/ui/widgets/home_latest_transaction.dart';
 import 'package:bank_flutter/ui/widgets/home_service.dart';
+import 'package:bank_flutter/ui/widgets/home_tips_item.dart';
+import 'package:bank_flutter/ui/widgets/home_user_item.dart';
 import 'package:bank_flutter/ui/widgets/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -82,6 +84,8 @@ class HomePage extends StatelessWidget {
             buildLevel(),
             buildHomeService(),
             buildLatestTransaction(),
+            buildSendAgain(),
+            buildFriendlyTips(),
           ],
         ));
   }
@@ -167,7 +171,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 26,
+            height: 24,
           ),
           Text(
             "**** **** **** 1234",
@@ -178,7 +182,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 21,
+            height: 20,
           ),
           Text(
             "Balance",
@@ -316,31 +320,98 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: const [
                 HomeLatestTransaction(
-                  title: "Top Up",
+                  title: "Withdraw",
                   time: "Today, 10.00 AM",
                   value: "+ Rp 50.000",
-                  iconUrl: 'assets/ic_topup.png',
+                  iconUrl: 'assets/ic_transaction_cat1.png',
+                ),
+                HomeLatestTransaction(
+                  title: "Cashback",
+                  time: "Today, 10.00 AM",
+                  value: "+ Rp 50.000",
+                  iconUrl: 'assets/ic_transaction_cat2.png',
                 ),
                 HomeLatestTransaction(
                   title: "Top Up",
                   time: "Today, 10.00 AM",
                   value: "+ Rp 50.000",
-                  iconUrl: 'assets/ic_topup.png',
+                  iconUrl: 'assets/ic_transaction_cat3.png',
                 ),
                 HomeLatestTransaction(
-                  title: "Top Up",
+                  title: "Transfer",
                   time: "Today, 10.00 AM",
                   value: "+ Rp 50.000",
-                  iconUrl: 'assets/ic_topup.png',
-                ),
-                HomeLatestTransaction(
-                  title: "Top Up",
-                  time: "Today, 10.00 AM",
-                  value: "+ Rp 50.000",
-                  iconUrl: 'assets/ic_topup.png',
+                  iconUrl: 'assets/ic_transaction_cat4.png',
                 ),
               ],
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildSendAgain() {
+    return Container(
+      margin: const EdgeInsets.only(top: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Send Again",
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold,
+            ),
+          ),
+          const SizedBox(
+            height: 14,
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: const [
+                HomeUserItem(imageUrl: 'assets/img_friend1.png', name: "izal"),
+                HomeUserItem(imageUrl: 'assets/img_friend2.png', name: "raden"),
+                HomeUserItem(imageUrl: 'assets/img_friend3.png', name: "ayu"),
+                HomeUserItem(imageUrl: 'assets/img_friend4.png', name: "sari"),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget buildFriendlyTips() {
+    return Container(
+      margin: const EdgeInsets.only(top: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Friendly Tips",
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold,
+            ),
+          ),
+          const SizedBox(
+            height: 14,
+          ),
+          Row(
+            children: const [
+              HomeTipsitem(
+                imageUrl: ('assets/img_tips1.png'),
+                title: "Belajar Pertama",
+                url: "izal.com",
+              ),
+              HomeTipsitem(
+                imageUrl: ('assets/img_tips2.png'),
+                title: "Belajar Kedua",
+                url: "izal.com",
+              )
+            ],
           ),
         ],
       ),
