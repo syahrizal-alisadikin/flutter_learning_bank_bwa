@@ -1,5 +1,6 @@
 import 'package:bank_flutter/ui/pages/home_page.dart';
 import 'package:bank_flutter/ui/pages/onboarding_page.dart';
+import 'package:bank_flutter/ui/pages/profile_page.dart';
 import 'package:bank_flutter/ui/pages/sign_up_set_ktp.dart';
 import 'package:bank_flutter/ui/pages/sign_up_set_profile.dart';
 import 'package:bank_flutter/ui/pages/sign_in_page.dart';
@@ -19,14 +20,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        // '/': (context) => const SplashPage(),
+        '/': (context) => const SplashPage(),
         '/onboarding': (context) => const OnboardingPage(),
         '/login': (context) => const SignInPage(),
         '/register': (context) => const SignUpPage(),
         '/register-set-profile': (context) => const SignUpSetProfile(),
         '/register-set-ktp': (context) => const SignUpSetKtp(),
         '/register-success': (context) => const SignUpSuccess(),
-        '/': (context) => const HomePage(),
+        '/home': (context) => const HomePage(),
+        '/profile': (context) => const ProfilePage(),
       },
     );
   }

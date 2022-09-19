@@ -79,7 +79,7 @@ class HomePage extends StatelessWidget {
         body: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           children: [
-            buildHeaderProfile(),
+            buildHeaderProfile(context),
             buildWalletCard(),
             buildLevel(),
             buildHomeService(),
@@ -90,7 +90,7 @@ class HomePage extends StatelessWidget {
         ));
   }
 
-  Widget buildHeaderProfile() {
+  Widget buildHeaderProfile(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 40),
       child: Row(
@@ -117,31 +117,36 @@ class HomePage extends StatelessWidget {
               ),
             ],
           ),
-          Container(
-              width: 60,
-              height: 60,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: AssetImage('assets/img_profile.png'),
-                ),
-              ),
-              child: Align(
-                alignment: Alignment.topRight,
-                child: Container(
-                  width: 18,
-                  height: 18,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: whiteColor,
-                  ),
-                  child: Icon(
-                    Icons.check_circle,
-                    color: greenColor,
-                    size: 16,
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/profile');
+            },
+            child: Container(
+                width: 60,
+                height: 60,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage('assets/img_profile.png'),
                   ),
                 ),
-              ))
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: Container(
+                    width: 18,
+                    height: 18,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: whiteColor,
+                    ),
+                    child: Icon(
+                      Icons.check_circle,
+                      color: greenColor,
+                      size: 16,
+                    ),
+                  ),
+                )),
+          )
         ],
       ),
     );
@@ -385,7 +390,7 @@ class HomePage extends StatelessWidget {
 
   Widget buildFriendlyTips() {
     return Container(
-      margin: const EdgeInsets.only(top: 30),
+      margin: const EdgeInsets.only(top: 30, bottom: 50),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -399,18 +404,30 @@ class HomePage extends StatelessWidget {
           const SizedBox(
             height: 14,
           ),
-          Row(
+          Wrap(
+            spacing: 17,
+            runSpacing: 18,
             children: const [
               HomeTipsitem(
                 imageUrl: ('assets/img_tips1.png'),
                 title: "Belajar Pertama",
-                url: "izal.com",
+                url: "https://pub.dev/",
               ),
               HomeTipsitem(
                 imageUrl: ('assets/img_tips2.png'),
                 title: "Belajar Kedua",
-                url: "izal.com",
-              )
+                url: "https://syahrizal.my.id",
+              ),
+              HomeTipsitem(
+                imageUrl: ('assets/img_tips3.png'),
+                title: "Kerjasama perusahaan",
+                url: "https://pub.dev/",
+              ),
+              HomeTipsitem(
+                imageUrl: ('assets/img_tips4.png'),
+                title: "Investasi Penting dalam keuangan anda",
+                url: "https://pub.dev/",
+              ),
             ],
           ),
         ],
