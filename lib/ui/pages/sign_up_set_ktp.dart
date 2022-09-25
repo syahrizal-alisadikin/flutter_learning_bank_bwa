@@ -18,7 +18,6 @@ class _SignUpSetKtpState extends State<SignUpSetKtp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: lightBackgroundColor,
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         children: [

@@ -18,7 +18,7 @@ class _SplashPageState extends State<SplashPage> {
     // TODO: implement initState
     super.initState();
     Timer(
-      const Duration(seconds: 1),
+      const Duration(seconds: 2),
       () {
         Navigator.pushNamedAndRemoveUntil(
           context,
