@@ -1,5 +1,6 @@
 import 'package:bank_flutter/ui/pages/home_page.dart';
 import 'package:bank_flutter/ui/pages/onboarding_page.dart';
+import 'package:bank_flutter/ui/pages/pin_page.dart';
 import 'package:bank_flutter/ui/pages/profile_page.dart';
 import 'package:bank_flutter/ui/pages/sign_up_set_ktp.dart';
 import 'package:bank_flutter/ui/pages/sign_up_set_profile.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
         '/register-success': (context) => const SignUpSuccess(),
         '/home': (context) => const HomePage(),
         '/profile': (context) => const ProfilePage(),
+        '/pin': (context) => const PinPage(),
       },
     );
   }
