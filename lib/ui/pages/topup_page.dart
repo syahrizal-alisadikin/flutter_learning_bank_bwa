@@ -94,7 +94,7 @@ class _TopupPageState extends State<TopupPage> {
           CustomeFilledButton(
               title: "Continue",
               onPressed: () {
-                onChange();
+                Navigator.pushNamed(context, '/topup-amount');
               }),
           const SizedBox(height: 50),
         ],
