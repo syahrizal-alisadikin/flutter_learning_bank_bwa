@@ -2,6 +2,8 @@ import 'package:bank_flutter/ui/widgets/buttons.dart';
 import 'package:bank_flutter/ui/widgets/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TopupAmountPage extends StatefulWidget {
   const TopupAmountPage({Key? key}) : super(key: key);
@@ -13,12 +15,33 @@ class TopupAmountPage extends StatefulWidget {
 class _TopupAmountPageState extends State<TopupAmountPage> {
   final TextEditingController amountController =
       TextEditingController(text: '0');
+
+  void initState() {
+    super.initState();
+    amountController.addListener(() {
+      final text = amountController.text;
+      amountController.value = amountController.value.copyWith(
+        text: NumberFormat.currency(
+          locale: 'id',
+          symbol: '',
+          decimalDigits: 0,
+        ).format(
+          int.parse(
+            text.replaceAll('.', ''),
+          ),
+        ),
+      );
+    });
+  }
+
   addAmount(String number) {
     setState(() {
       if (amountController.text == '0') {
         amountController.text = "";
       }
-      amountController.text += number;
+      if (amountController.text.length <= 9) {
+        amountController.text += number;
+      }
     });
   }
 
@@ -54,7 +77,7 @@ class _TopupAmountPageState extends State<TopupAmountPage> {
           ),
           Align(
             child: SizedBox(
-              width: 200,
+              width: 250,
               child: TextFormField(
                 controller: amountController,
                 cursorColor: greyColor,
@@ -65,7 +88,7 @@ class _TopupAmountPageState extends State<TopupAmountPage> {
                 enabled: false,
                 decoration: InputDecoration(
                   prefixIcon: Text(
-                    'Rp. ',
+                    'Rp ',
                     style: whiteTextStyle.copyWith(
                       fontSize: 36,
                       fontWeight: medium,
@@ -168,7 +191,8 @@ class _TopupAmountPageState extends State<TopupAmountPage> {
             title: "Checkout Now",
             onPressed: () async {
               if (await Navigator.pushNamed(context, '/pin') == true) {
-                Navigator.pushNamedAndRemoveUntil(
+                await launchUrl(Uri.parse("https://demo.midtrans.com/"));
+                await Navigator.pushNamedAndRemoveUntil(
                     context, '/topup-success', (route) => false);
               }
             },
