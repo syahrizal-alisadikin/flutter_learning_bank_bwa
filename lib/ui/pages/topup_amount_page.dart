@@ -41,7 +41,7 @@ class _TopupAmountPageState extends State<TopupAmountPage> {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 58),
         children: [
-          const SizedBox(height: 36),
+          const SizedBox(height: 60),
           Center(
             child: Text(
               'Total Amount',
@@ -166,7 +166,12 @@ class _TopupAmountPageState extends State<TopupAmountPage> {
           ),
           CustomeFilledButton(
             title: "Checkout Now",
-            onPressed: () {},
+            onPressed: () async {
+              if (await Navigator.pushNamed(context, '/pin') == true) {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/topup-success', (route) => false);
+              }
+            },
           ),
           const SizedBox(
             height: 25,
