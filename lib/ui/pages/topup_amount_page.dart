@@ -161,6 +161,23 @@ class _TopupAmountPageState extends State<TopupAmountPage> {
               ],
             ),
           ),
+          const SizedBox(
+            height: 50,
+          ),
+          CustomeFilledButton(
+            title: "Checkout Now",
+            onPressed: () {},
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+          CustomTextButton(
+            title: "Terms and Conditions",
+            onPressed: () {},
+          ),
+          const SizedBox(
+            height: 50,
+          ),
         ],
       ),
     );

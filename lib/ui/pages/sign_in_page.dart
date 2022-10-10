@@ -98,14 +98,15 @@ class _SignInPageState extends State<SignInPage> {
             height: Get.height * 0.1,
           ),
           CustomTextButton(
-              title: "Register New Account",
-              onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(
-                  context,
-                  '/register',
-                  (route) => false,
-                );
-              }),
+            title: "Register New Account",
+            onPressed: () {
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                '/register',
+                (route) => false,
+              );
+            },
+          ),
         ],
       ),
     );
