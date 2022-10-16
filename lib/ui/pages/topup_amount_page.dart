@@ -27,7 +27,7 @@ class _TopupAmountPageState extends State<TopupAmountPage> {
           decimalDigits: 0,
         ).format(
           int.parse(
-            text.replaceAll('.', ''),
+            text == "" ? "0" : text.replaceAll('.', ''),
           ),
         ),
       );
@@ -192,7 +192,7 @@ class _TopupAmountPageState extends State<TopupAmountPage> {
             onPressed: () async {
               if (await Navigator.pushNamed(context, '/pin') == true) {
                 await launchUrl(Uri.parse("https://demo.midtrans.com/"));
-                await Navigator.pushNamedAndRemoveUntil(
+                Navigator.pushNamedAndRemoveUntil(
                     context, '/topup-success', (route) => false);
               }
             },
