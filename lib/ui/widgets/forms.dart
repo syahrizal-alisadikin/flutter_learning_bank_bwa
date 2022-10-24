@@ -8,6 +8,7 @@ class CustomeFormField extends StatelessWidget {
   final TextEditingController controller;
   final bool? eye;
   final bool iconData;
+  final bool isShowTitle;
   final VoidCallback? onPressed;
   const CustomeFormField({
     Key? key,
@@ -18,6 +19,7 @@ class CustomeFormField extends StatelessWidget {
     this.eye = false,
     this.onPressed,
     this.iconData = true,
+    this.isShowTitle = true,
   }) : super(key: key);
 
   @override
@@ -25,13 +27,14 @@ class CustomeFormField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: blackTextStyle.copyWith(
-            fontSize: 16,
-            fontWeight: semiBold,
+        if (isShowTitle)
+          Text(
+            title,
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold,
+            ),
           ),
-        ),
         const SizedBox(
           height: 8,
         ),
